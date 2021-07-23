@@ -1,0 +1,361 @@
+!<!DOCTYPE html>
+<html lang="vi" dir="ltr">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style media="screen">
+        @charset "UTF-8";
+* {
+  font-family: "Source Sans Pro", "Roboto", Arial, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.dropdown-menu.show {
+  -webkit-animation: fadeIn 0.3s alternate;
+  /* Safari 4.0 - 8.0 */
+  animation: fadeIn 0.3s alternate;
+}
+
+.dropdown-toggle-arrow, .dropdown-submenu-toggle.icon-left::before, .dropdown-submenu-toggle::after, .dropdown-toggle::after {
+  display: inline-block;
+  font: normal normal normal 14px/1 "Material-Design-Iconic-Font";
+  font-size: inherit;
+  margin: 0;
+  border: none;
+  vertical-align: inherit;
+  color: #8db3d3;
+  width: 1.28571429em;
+}
+
+.dropdown-toggle::after {
+  content: "";
+  width: auto;
+  padding-left: 0.2rem;
+}
+
+.dropdown-submenu-toggle::after {
+  text-align: center;
+  content: "";
+}
+.dropdown-submenu-toggle.icon-left::after {
+  content: "";
+}
+.dropdown-submenu-toggle.icon-left::before {
+  text-align: center;
+  content: "";
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+.dropdown-submenu .dropdown-menu-right {
+  left: auto;
+  right: 100%;
+}
+
+.nav-item.dropdown.dropdown-mega {
+  position: static;
+}
+.nav-item.dropdown.dropdown-mega .dropdown-menu {
+  width: 90%;
+  top: auto;
+  left: 5%;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0;
+  outline: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-toggler .hamburger-toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  z-index: 11;
+  float: right;
+}
+.navbar-toggler .hamburger-toggle .hamburger {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(0deg);
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  pointer-events: none;
+}
+.navbar-toggler .hamburger-toggle .hamburger span {
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  background: #333;
+  border-radius: 2px;
+  z-index: 1;
+  transition: transform 0.2s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.2s cubic-bezier(0.77, 0.2, 0.05, 1), all 0.2s ease-in-out;
+  left: 0px;
+}
+.navbar-toggler .hamburger-toggle .hamburger span:first-child {
+  top: 10%;
+  transform-origin: 50% 50%;
+  transform: translate(0% -50%) !important;
+}
+.navbar-toggler .hamburger-toggle .hamburger span:nth-child(2) {
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.navbar-toggler .hamburger-toggle .hamburger span:last-child {
+  left: 0px;
+  top: auto;
+  bottom: 10%;
+  transform-origin: 50% 50%;
+}
+.navbar-toggler .hamburger-toggle .hamburger.active span {
+  position: absolute;
+  margin: 0;
+}
+.navbar-toggler .hamburger-toggle .hamburger.active span:first-child {
+  top: 45%;
+  transform: rotate(45deg);
+}
+.navbar-toggler .hamburger-toggle .hamburger.active span:nth-child(2) {
+  left: 50%;
+  width: 0px;
+}
+.navbar-toggler .hamburger-toggle .hamburger.active span:last-child {
+  top: 45%;
+  transform: rotate(-45deg);
+}
+
+.icons {
+  display: inline-flex;
+  margin-left: auto;
+}
+.icons a {
+  transition: all 0.2s ease-in-out;
+  padding: 0.2rem 0.4rem;
+  color: #ccc !important;
+  text-decoration: none;
+}
+.icons a:hover {
+  color: white;
+  text-shadow: 0 0 30px white;
+}
+    </style>
+</head>
+<body>
+    <!--
+(c) 2020 Written by Simon Köhler in Panama
+github.com/koehlersimon
+simon-koehler.com
+-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#">Bootstrap <span class="badge bg-success">v5</span></a> -->
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+      <div class="hamburger-toggle">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Multilevel</a>
+          <ul class="dropdown-menu shadow">
+            <li><a class="dropdown-item" href="#">Gallery</a></li>
+            <li><a class="dropdown-item" href="#">Blog</a></li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-item dropdown-submenu-toggle icon-left">Submenu Left</a>
+              <ul class="dropdown-menu dropdown-menu-right dropdown-submenu shadow">
+                <li><a class="dropdown-item" href=""> Third level 1</a></li>
+                <li><a class="dropdown-item" href=""> Third level 2</a></li>
+                <li><a class="dropdown-item" href=""> Third level 3</a></li>
+                <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+              </ul>
+            </li>
+            <li class="dropdown-submenu">
+              <a href="#" class="dropdown-item dropdown-submenu-toggle">Submenu Right</a>
+              <ul class="dropdown-menu dropdown-submenu shadow">
+                <li><a class="dropdown-item" href=""> Second level 1</a></li>
+                <li><a class="dropdown-item" href=""> Second level 2</a></li>
+                <li><a class="dropdown-item" href=""> Second level 3</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#" class="dropdown-item dropdown-submenu-toggle">Let's go deeper!</a>
+                  <ul class="dropdown-menu dropdown-submenu shadow">
+                    <li><a class="dropdown-item" href=""> Third level 1</a></li>
+                    <li><a class="dropdown-item" href=""> Third level 2</a></li>
+                    <li><a class="dropdown-item" href=""> Third level 3</a></li>
+                    <li><a class="dropdown-item" href=""> Third level 4</a></li>
+                    <li><a class="dropdown-item" href=""> Third level 5</a></li>
+                  </ul>
+                </li>
+                <li><a class="dropdown-item" href=""> Third level 5</a></li>
+              </ul>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown dropdown-mega">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Megamenu</a>
+          <div class="dropdown-menu shadow">
+            <div class="mega-content px-4">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12 col-sm-4 col-md-3 py-4">
+                    <h5>Pages</h5>
+                    <div class="list-group">
+                      <a class="list-group-item" href="#">Accomodations</a>
+                      <a class="list-group-item" href="#">Terms & Conditions</a>
+                      <a class="list-group-item" href="#">Privacy</a>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-3 py-4">
+                    <h5>Card</h5>
+                    <div class="card">
+                      <img src="https://placehold.it/320x180" class="img-fluid" alt="image">
+                      <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-3 py-4">
+                    <h5>Lot of Pages</h5>
+                    <p>Lorem ipsum dolo sit achmet muhamed borlan de irtka.
+                  </div>
+                  <div class="col-12 col-sm-12 col-md-3 py-4">
+                    <h5>Damn, so many</h5>
+                    <div class="list-group">
+                      <a class="list-group-item" href="#">Accomodations</a>
+                      <a class="list-group-item" href="#">Terms & Conditions</a>
+                      <a class="list-group-item" href="#">Privacy</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<section class="my-5">
+  <div class="container">
+    <div class="p-4 border">
+      <h1>Bootstrap <span class="text-success">5</span> Navbar Multi Level and Mega Menu</h1>
+      <p class="lead">This example shows a Navbar component of the Bootstrap Framework version 5 with the following features:</p>
+      <ul>
+        <li>Multi Level Menu</li>
+        <li>Material Icons as Dropdown Icons</li>
+        <li>Animated Hamburger Menu for Mobile Devices</li>
+      </ul>
+      <hr>
+      <p>If you have any questions, feel free to contact me: <a href="https://simon-koehler.com/contact">https://simon-koehler.com/contact</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark p-4 text-white text-center">
+  <small>(c) 2020-2021 Written by Simon Köhler in Panama</small>
+  <div class="icons">
+    <a href="https://simon-koehler.com/en" target="_blank">
+      <i class="fa fa-globe"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/typo3-freelancer/" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://typo3.com/partners/professional-service-listing/detail/typo3-freelancer" target="_blank">
+      <i class="fab fa-typo3"></i>
+    </a>
+    <a href="https://instagram.com/typo3freelancer" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://github.com/koehlersimon/" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://www.youtube.com/channel/UC_PtQESDvj-GZNeo9LarRuA?view_as=subscriber" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+// (c) 2020 Written by Simon Köhler in Panama
+// github.com/koehlersimon
+// simon-koehler.com
+
+var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+var dropdownSubmenuElementList = [].slice.call(document.querySelectorAll('.dropdown-submenu-toggle'));
+var dropdownMenus = [].slice.call(document.querySelectorAll('.dropdown-menu'));
+
+var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+    return new bootstrap.Dropdown(dropdownToggleEl);
+});
+
+var submenuList = dropdownSubmenuElementList.map(function(e) {
+    e.onclick = function(e){
+        e.target.parentNode.querySelector('ul').classList.toggle('show');
+        e.stopPropagation();
+        e.preventDefault();
+    }
+});
+
+var masterClickEvent = document.addEventListener('click',function(e){
+
+    // Function to remove show class from dropdowns that are open
+    closeAllSubmenus();
+
+    // Hamburger menu
+    if(e.target.classList.contains('hamburger-toggle')){
+        e.target.children[0].classList.toggle('active');
+    }
+
+});
+
+function closeAllSubmenus(){
+    // Function to remove show class from dropdowns that are open
+    dropdownMenus.map(function (menu) {
+        menu.classList.remove('show');
+    });
+}
+
+
+</script>
+</body>
