@@ -448,11 +448,11 @@ a, a:active, a:focus, a:hover, a:visited {
 	text-align: center;
 }
 .price-img{
-	max-height: 300px;
+	max-height: 260px;
 	margin-bottom: 30px;
 }
 .price-img img{
-	max-height: 280px;
+	max-height: 260px;
 }
 .price-content{
 
